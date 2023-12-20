@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap'); 
+
+html, body, [class*="css"] {
+    font-family: 'Poppins'; 
+    font-weight: normal;
+}
+
+[data-testid="stSidebar"] {
+    background-image: url(https://streamlit.io/images/brand/streamlit-mark-color.png);
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: 15px 50px;
+}
+
+div.block-container {
+    padding-top: 1rem;
+}
+
+section[data-testid='stSidebar'] {
+    background-color: #111;
+    flex-shrink: unset !important;
+}
+
+@media(hover:hover) and (min-width: 600px) and (max-width: 1000px) {
+    header[data-testid="stHeader"] {
+        display: none;
+    }
+
+    section[data-testid='stSidebar'] {
+        height: 100%;
+        min-width: 80px !important;
+        width: 80px !important;
+        margin-left: 300px;
+        position: relative;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s ease;
+        padding-top: 5px;
+        white-space: nowrap;
+    }
+
+    section[data-testid='stSidebar']:hover {
+        min-width: 250px !important;
+    }
+
+    button[kind="header"] {
+        display: none;
+    }
+
+    div[data-testid="collapsedControl"] {
+        display: none;
+    }
+
+}
+
+@media(hover: hover) and (min-width: 1000px) {
+    header[data-testid="stHeader"] {
+        display: none;
+    }
+
+    section[data-testid='stSidebar'] {
+        height: 100%;
+        min-width: 80px !important;
+        width: 80px !important;
+        transform: translateX(0px);
+        position: relative;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s ease;
+        padding-top: 5px;
+        white-space: nowrap;
+    }
+
+    section[data-testid='stSidebar']:hover {
+        min-width: 250px !important;
+    }
+
+    button[kind="header"] {
+        display: none;
+    }
+
+    div[data-testid="collapsedControl"] {
+        display: none;
+    }
+}
+
+
+[data-testid=metric-container] {
+    box-shadow: 0 0 4px #686664;
+    padding: 10px;
+}
+
+.plot-container>div {
+    box-shadow: 0 0 2px #070505;
+    padding: 5px;
+    border-color: #000000;
+
+
+}
+
+div[data-testid="stExpander"] div[role="button"] p {
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    border-color: #000000;
+    color-scheme: #000000;
+}
+
+.sidebar-content {
+    color: white;
+}
+
+[data-testid=stSidebar] {
+    color: white;
+
+}
+
+
+#search_button {
+    width: 200px;
+    background-color: #00c9a4;
+    color: white;
+    margin: 0 auto;
+    display: block;
+}
+
+[data-testid=metric-container] {
+    box-shadow: 0 0 4px #686664;
+    padding: 10px;
+}
+
+.plot-container>div {
+    box-shadow: 0 0 2px #070505;
+    padding: 5px;
+    border-color: #000000;
+}
+
+div[data-testid="stExpander"] {
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    border-color: #000000;
+    color-scheme: #000000;
+}
+
+/* Hide hamburger menu and footer */
+div.css-r698ls.e8zbici2 {
+    display: none;
+}
+
+footer.css-ipbk5a.egzxvld4 {
+    display: none;
+}
+
+footer.css-12gp8ed.eknhn3m4 {
+    display: none;
+}
+
+div.vg-tooltip-element {
+    display: none;
+}
