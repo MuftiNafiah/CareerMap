@@ -15,7 +15,7 @@ from streamlit_lottie import st_lottie
 import circlify
 import time
 import os
-
+print(os.getcwd())
 
 # set halaman dan css
 st.set_page_config(layout='wide', initial_sidebar_state='expanded')
@@ -596,7 +596,7 @@ elif tabs == 'Job':
 
 elif tabs == 'About':
     # section 1
-    st.image(r'img\banner1.jpg', use_column_width=True)
+    st.image(r'img/banner1.jpg', use_column_width=True)
     sub_title = '''Project Overview'''
     st.markdown(f"<p style='text-align: center; font-size: 34px; color: #00c9a4; font-weight: 700; margin-top:100px'>{sub_title}</p>", unsafe_allow_html=True)
     desc = '''Our website specializes in comprehensive LinkedIn data analysis and visualization, offering a powerful platform for unlocking valuable insights. With dynamic visualizations, users gain enhanced understanding of professional networks, industry trends, and skill landscapes. The project aims to streamline data exploration, serving as an invaluable tool for harnessing the full potential of LinkedIn data through intuitive and interactive representations.'''
