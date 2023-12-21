@@ -14,6 +14,7 @@ import re
 from streamlit_lottie import st_lottie
 import circlify
 import time
+from wordcloud import WordCloud
 import os
 print(os.getcwd())
 
@@ -202,7 +203,7 @@ if tabs =='Dashboard':
 
 # sidebar 2 : search
 elif tabs == 'Company':
-    tab_c1, tab_c2 = st.tabs(['Dataset', 'Company Insight'])
+    tab_c1, tab_c2, tab_c3 = st.tabs(['Dataset', 'Company Insight', 'wordcloud'])
     with tab_c1:
 
         # form filtering
@@ -392,8 +393,41 @@ elif tabs == 'Company':
                 </style>
                 ''', unsafe_allow_html=True)
 
+    with tab_c3:
+        # Function to generate Word Cloud
+        def generate_wordcloud(text):
+            print("Generating Word Cloud for text:", text)
+            wordcloud = WordCloud(width=1200, height=300, background_color='white').generate(text)
+            plt.figure(figsize=(12, 6))
+            plt.imshow(wordcloud, interpolation='bilinear')
+            plt.axis('off')
+            st.image(wordcloud.to_image())
+
+        # Streamlit app
+        st.header("Word Clouds for Company Descriptions")
+
+        # Choose a company for analysis
+        col1, col2 = st.columns([1, 2])
+        with col1:
+            selected_company = st.selectbox("Select a Company", dfCp['name'].unique())
+        with col2:
+            st.write('')
+
+        # Filter the dataset for the selected company
+        selected_company_data = dfCp[dfCp['name'] == selected_company]
+        st.write('')
+
+        # Generate Word Cloud for the description of the selected company
+        generate_wordcloud(selected_company_data['description'].iloc[0])
+
+        # Display company details
+        st.title('')
+        st.subheader(f"Details for {selected_company}")
+        st.write(selected_company_data[['name', 'description']])
+
+
 elif tabs == 'Job':
-    tab_j1, tab_j2 = st.tabs(['Dataset', 'Job Insight'])
+    tab_j1, tab_j2, tab_j3 = st.tabs(['Dataset', 'Job Insight', 'wordcloud'])
     with tab_j1:
 
         # form filtering
@@ -593,6 +627,38 @@ elif tabs == 'Job':
                 }
                 </style>
                 ''', unsafe_allow_html=True)
+
+    with tab_j3:
+        # Function to generate Word Cloud
+        def generate_wordcloud(text):
+            print("Generating Word Cloud for text:", text)
+            wordcloud = WordCloud(width=1200, height=300, background_color='white').generate(text)
+            plt.figure(figsize=(12, 6))
+            plt.imshow(wordcloud, interpolation='bilinear')
+            plt.axis('off')
+            st.image(wordcloud.to_image())
+
+        # Streamlit app
+        st.header("Word Clouds for Job Descriptions")
+
+        # Choose a company for analysis
+        col1, col2 = st.columns([1, 2])
+        with col1:
+            selected_company = st.selectbox("Select a Company", dfJob['title'].unique())
+        with col2:
+            st.write('')
+
+        # Filter the dataset for the selected company
+        selected_company_data = dfJob[dfJob['title'] == selected_company]
+        st.write('')
+
+        # Generate Word Cloud for the description of the selected company
+        generate_wordcloud(selected_company_data['description'].iloc[0])
+
+        # Display company details
+        st.title('')
+        st.subheader(f"Details for {selected_company}")
+        st.write(selected_company_data[['title', 'description']])
 
 elif tabs == 'About':
     # section 1
